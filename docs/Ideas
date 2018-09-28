@@ -1,0 +1,12 @@
+CS 411 Proposal Group 4
+Jake Thornton
+Ada Gok
+Li Wang
+Christopher Huang
+
+Proposal 1: General Room Search Engine
+	Our group’s first proposal is to implement a web-based service where users would be able to find listings for hotels, lease properties, and other short term residences for people looking for a place to stay for short trips and other excursions. We want the search to include criteria such as location, number of people, size, and price range. We also intend to allow users to check off a few boxes in other criteria such as availability of air conditioning, internet connection, usable appliances, transportation options, and other amenities. We also in well as rules imposed on anyone renting the property, such as smoking or sound restrictions. If possible, we would like to add a section on listings where we would list things in the area such as popular stores and restaurants. Our data for listings would come from Expedia and AirBNB, which are two websites that do not have each other’s listings. Both of these websites have public APIs which we can use to get their listings. Therefore, our search would allow users to search both sites at the same time. We would let users log in to save their search criteria and come back to their search at a later time. This would use OAuth. The search criteria that the user wants to keep saved would be in our database. It will store their search terms, criteria, and previously viewed properties. Another idea we have for the property that might possibly need a database is a comment section on each of the listings so we could store the comments themselves. 
+
+Proposal 2: 
+	
+	Our other proposal is to enhance the online Grateful Dead streaming experience. Deadheads tends to listen to live recordings and songs mean a lot to to the fans. Fans have favorite songs from years, shows, and concerts they attended. Most fans stream from a site called archive.org, which has an API. Usually, the sound quality is very good on archive but the vocals are hard to make out. To fix this, we can use songmeanings.com, which also has an API. We can filter shows on archive by either date or dating for each year, and then pull from song meanings to post the lyrics and what the lyrics mean to fans for each individual songs. This will add even more enjoyment for a fan base that cares deeply about the music. Hopefully, the web app would be well organized, allow ratings and comments, and can change the text (lyrics, meanings, comments) when each song changes.
