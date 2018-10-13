@@ -1,0 +1,20 @@
+CS 411 User Stories
+Jake Thornton
+Ada Gok
+Li Wang
+Christopher Huang
+
+Registration as accessible from the front page and would ask people to link either their Facebook or Twitter with the website using Oauth
+Front page would have some of the most popular bands, measured by hits, front page would have a link to a full list of all the bands available, as well as a search bar that would let users search for bands and songs
+If a user is not logged in, they cannot save their favorite bands, versions of songs, or be able to comment on songs, as well as rate songs
+Logged in users can do all of the all of the above, and have a profile page which would show their saved bands and favorite editions of songs
+
+User case 1: Fans who want to listen and discuss their favorite live performances of music
+	The user will log in and then go to the listing of all bands available on the service. Then they could search for the song they are looking for through some simple criteria such as album, release date, or name. After they select the song, the user would have a list of all the recordings of the song that are available in the service, and can choose from any of them to listen to. After listening to a recording, the user would then go to the comment page for the song and comment on the version they listened to, and would be able to compare them to others. The versions would all be numbered off so that the user would be able to state precisely which performance they are referring to. These things would allow the user to discuss their favorite songs with other users.
+
+User case 2: Users trying to find their favorite versions of songs for bands they have recently found
+	Same as above, the user will log in and then go to the listing of all bands available on the service. Then they could search for the song they are looking for through some simple criteria such as album, release date, or name. After they select the song, the user would have a list of all the recordings of the song that are available in the service, and can choose from any of them to listen to.
+	However, at this point, they can look at the ratings other users have given to certain versions of songs, and can sort any of the versions by rating or date recorded. This will allow the user to quickly find a version of the song that they like the most.
+
+User case 3: Users trying to find lyrics to a song and quickly listen to a part of it
+	These users will likely find the website from google after trying to find the lyrics of a certain song, and will be linked directly to the page of the song. The lyrics will be on the website for the user to see, as well as the many versions the user can listen to so they can hear the song. 
