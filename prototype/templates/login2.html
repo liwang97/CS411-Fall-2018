@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<title>Archive Search Engine</title>
+<meta name="google-signin-client_id" content="500152843052-qprb935odejbiqtj24irqdkvjbs8mkc3.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #B0E0E6; 
+    /*#87CEEB;*/
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #FFEFD5;
+}
+</style>
+</head>
+<body>
+
+<!-- <h2>Welcome</h2>
+<p>Searching for good music with lyrics? Your in the right place!</p> -->
+
+<div class="tab">
+  <button class="tablinks" onclick="openN(event, 'Home')"id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openN(event, 'Profile')">Profile</button>
+  <button class="tablinks" onclick="openN(event, 'About')">About</button>
+</div>
+
+
+<div id="Home" class="tabcontent">
+  <body>
+ 
+  <img src="https://i.redd.it/kgndvvle3f401.png" width="1250"> 
+
+  <div class="g-signin2" data-onsuccess="onSignIn">
+  </div>
+  <script>
+      function onSignIn(googleUser) {
+          var profile = googleUser.getBasicProfile();
+          console.log('Name: ' + profile.getName());
+      }
+  </script>
+
+  <script>
+      $("#formId").submit(function (event) {
+          $.post('/route', $("#formId").serialize(), function (data) {
+              console.log(data) //data is the response from the backend
+          });
+          event.preventDefault();
+      });
+  </script>
+  <br />
+
+  <form action="/home" class="form" autocomplete="off" spellcheck="false" method="POST">
+            <label for="name">Enter a song, album, or show name by the Grateful Dead</label>
+            <input type="text" class="form-control" autofocus="autofocus" id="answer" name="answer">
+        </form>
+
+  <a href="#" onclick="signOut();">Sign out</a>
+  <script>
+      function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+              console.log('User signed out.');
+          });
+      }
+  </script>
+
+    
+  </body>
+  <!-- <body>
+  <form class="form" autocomplete="off" spellcheck="false" method="POST">
+            <label for="name">Who would you like to look up in Archive.org's database?</label><br>
+            <input type="text" class="form-control" autofocus="autofocus" id="answer" name="answer">
+        </form>
+    
+  </body> -->
+</div>
+
+<div id="Profile" class="tabcontent">
+    <img src="https://liveforlivemusic.com/wp-content/uploads/2016/08/jerry-garcia-600x390.jpg" height = "300">
+    <img src = "https://cdn2.bigcommerce.com/server2800/677b8/products/26100/images/110949/00075__47008.1471453601.1100.1100.jpg?c=2" height = "300">
+    <img src = "https://pbs.twimg.com/media/DVeN3ibV4AEputS.jpg" height = "300">
+  <h2>Profile History</h2>
+  <p>
+  <th>Favorites!:</th>
+  <form action="/profile" class="form" autocomplete="off" spellcheck="false" method="POST">
+            <label for="name">Nickname:</label>
+            <input type="text" class="form-control" autofocus="autofocus" id="nickname" name="nickname">
+            <input type="submit" name="submitted" value="submit">
+        </form>
+  <form>
+  <table>
+  <tr>
+  <ul>
+  {% for thing in filename %}
+    <li>{{ thing }}</li>
+  {% endfor %}  
+  </ul>
+  <!-- <th>First Name:</th>
+  <td><input type="text" name="first_name"></td>
+  </tr>
+  <tr>
+  <th>Last Name:</th>
+  <td><input type="text" name="last_name"></td>
+  </tr>
+  <tr>
+  <th>Date of Birth:</th>
+  <td><input type="text" name="date_of_birth"></td>
+  </tr>
+  <tr>
+  <th>Email:</th>
+  <td><input type="text" name="hometown"></td> -->
+  </tr>
+  </table>
+  </form>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>We are here to provide Archive.org lovers with lyrics and embedded songs.</p>
+  <img src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/Grateful_Dead_%281970%29.png" width = "1250">
+</div>
+
+<script>
+function openN(evt, Name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].style.backgroundColor = "";
+        // tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(Name).style.display = "block";
+    elmnt.style.backgroundColor = color;
+    // evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
+
+     
+</body>
+</html> 
