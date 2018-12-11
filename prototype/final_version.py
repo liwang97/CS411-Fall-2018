@@ -79,19 +79,19 @@ def home():
 
 		#form3 = request.form
 
-		# client = MongoClient()
-		# db = client.db
-		# collection1 = db.test_database
+		client = MongoClient()
+		db = client.db
+		collection1 = db.test_database
 		k = fdb.collection1.find_one({"search_term" : form})
 		#collection1.drop()
 
-		# if (k != None):
+		if (k != None):
 
-		# 	return render_template("audio_track.html", identifier_str = k['num_ident'][0],lyrics =k['lyrics'])
-		# # if (False):
-		# # 	return ""
+			return render_template("audio_track.html", identifier_str = k['num_ident'][0],lyrics =k['lyrics'])
+		# if (False):
+		# 	return ""
 
-		# else:
+		else:
 
 		url = "https://archive.org/advancedsearch.php"
 
